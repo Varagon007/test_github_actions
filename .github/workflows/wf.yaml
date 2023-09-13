@@ -19,7 +19,7 @@ jobs:
       run: |
         echo "Event triggered by $GITHUB_EVENT_NAME"
         echo "Dispatch type ${{ github.event.action }}"
-        echo "${{ github.event.client-payload.version }}"
+        echo "${{ github.event.client_payload.version }}"
     - name: Goodbye
       if: ${{ github.event.action == 'webhook-one' }}
       run: npx cowsay "Bye!"
