@@ -12,5 +12,5 @@ jobs:
   print-clickhouse_version:
     runs-on: ubuntu-latest
     steps:
-      - name: Print the input tag to STDOUT
+      - name: Print the input tag to ${{ inputs.clickhouse_version }} 
         run: echo  The tags are ${{ inputs.clickhouse_version }} 
