@@ -1,0 +1,16 @@
+name: test_wf_dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      clickhouse_version:
+        description: 'Clickhouse version'
+        required: true
+        type: string
+
+jobs:
+  print-clickhouse_version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print the input tag to STDOUT
+        run: echo  The tags are ${{ inputs.clickhouse_version }} 
