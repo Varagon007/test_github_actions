@@ -1,5 +1,7 @@
 name: test_wf_dispatch
 
+run-name: ${{ inputs.clickhouse_version }}
+
 on:
   workflow_dispatch:
     inputs:
