@@ -5,11 +5,11 @@ run-name: ${{ inputs.prefix }}_${{github.workflow}}_${{ inputs.uuid }}
 on:
   workflow_dispatch:
     inputs:
-      prefix:
+      run_prefix:
         description: 'Prefix runtime workflow'
         required: true
         type: string
-      uuid:
+      id:
         description: 'UUID that can correct understand start'
         required: true
         type: string
