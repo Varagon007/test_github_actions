@@ -1,6 +1,6 @@
 name: test_wf_dispatch
 
-run-name: ${{ inputs.run_prefix }}_${{github.workflow}}_${{ inputs.id }}
+run-name: ${{ github.workflow }}_${{ inputs.clickhouse_version }}_${{ inputs.id || github.run_number }}
 
 on:
   workflow_dispatch:
