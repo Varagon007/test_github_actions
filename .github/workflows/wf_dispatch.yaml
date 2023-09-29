@@ -23,4 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print the input tag to ${{ inputs.clickhouse_version }} 
-        run: echo  The tags are ${{ inputs.clickhouse_version }} 
+        run: |
+          echo  The tags are ${{ inputs.clickhouse_version }}
+          docker manifest inspect chtools/test-clickhouse:21.8.15.7
