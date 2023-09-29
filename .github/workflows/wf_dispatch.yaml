@@ -20,10 +20,11 @@ jobs:
     steps:
       - name: Check the input tag to ${{ inputs.clickhouse_version }} 
         run: |
-          echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
           docker manifest inspect chtools/test-clickhouse:${{ inputs.clickhouse_version }} > /dev/null 2>&1
           exit_code=$?
       - name: Test
+        if: failure()
         run: |
-          echo $GITHUB_SHA_SHORT
-          echo $VERSION_CLICK
+          echo NEXT_STEP
+      - name: Last step
+        run: echo Finish
