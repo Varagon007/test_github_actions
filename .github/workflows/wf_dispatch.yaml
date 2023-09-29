@@ -17,14 +17,17 @@ on:
 jobs:
   print-clickhouse_version:
     runs-on: ubuntu-latest
+    env:
+      NEED_SETUP: true
     steps:
       - name: Check the input tag to ${{ inputs.clickhouse_version }}
+        continue-on-error: true
         run: |
           docker manifest inspect chtools/test-clickhouse:${{ inputs.clickhouse_version }}
+          echo "NEED_SETUP=false" >> $GITHUB_ENV
       - name: Test
-        if: failure()
+        if: ${{ env.NEED_SETUP }}
         run: |
           echo NEXT_STEP
       - name: Last step
-        if: always()
         run: echo Finish
