@@ -21,7 +21,7 @@ jobs:
       - name: Check the input tag to ${{ inputs.clickhouse_version }} 
         run: |
           echo  The tags are ${{ inputs.clickhouse_version }}
-          echo "SERVER_IP='$(hostname -I | awk '{print $1}')'" >> $GITHub_ENV
+          echo "SERVER_IP='$(hostname -I | awk '{print $1}')'" > $GITHub_ENV
       - name: read var
         run: |
           echo "Calling var from env using env context: server ip is ${{ env.SERVER_IP }}"
