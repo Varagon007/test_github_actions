@@ -23,6 +23,6 @@ jobs:
           echo  The tags are ${{ inputs.clickhouse_version }}
           docker manifest inspect chtools/test-clickhouse:${{ inputs.clickhouse_version }} > /dev/null 2>&1
           exit_code=$?
-          echo "VERSION_EXIST=$exit_code" >> $GITHub_ENV
+          echo $exit_code
       - name: Print
         run: echo ${{ env.VERSION_EXIST }}
