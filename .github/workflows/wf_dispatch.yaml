@@ -28,6 +28,6 @@ jobs:
       - name: Test
         if: ${{ env.NEED_SETUP }}
         run: |
-          echo NEXT_STEP
+          echo ${{ env.NEED_SETUP }}
       - name: Last step
         run: echo Finish
