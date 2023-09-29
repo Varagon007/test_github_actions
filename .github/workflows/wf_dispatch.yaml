@@ -27,4 +27,5 @@ jobs:
         run: |
           echo NEXT_STEP
       - name: Last step
+        if: always()
         run: echo Finish
