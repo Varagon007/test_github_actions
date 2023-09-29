@@ -19,6 +19,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check the input tag to ${{ inputs.clickhouse_version }} 
-        run: echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
+        run: |
+          echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
+          docker manifest inspect chtools/test-clickhouse:${{ inputs.clickhouse_version }} > /dev/null 2>&1
+          exit_code=$?
+          if [ $exit_code -eq 0 ]; then
+            echo "VERSION_CLICK=$(echo true)" >> $GITHUB_ENV
+          else
+            echo "VERSION_CLICK=$(echo false)" >> $GITHUB_ENV
+          fi
       - name: Test
-        run: echo $GITHUB_SHA_SHORT
+        run: |
+          echo $GITHUB_SHA_SHORT
+          echo $VERSION_CLICK
