@@ -5,10 +5,6 @@ run-name: ${{ github.workflow }}_${{ inputs.clickhouse_version }}_${{ inputs.id 
 on:
   workflow_dispatch:
     inputs:
-      run_prefix:
-        description: 'Prefix runtime workflow'
-        required: true
-        type: string
       id:
         description: 'UUID that can correct understand start'
         required: true
