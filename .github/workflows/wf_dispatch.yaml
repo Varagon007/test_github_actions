@@ -26,7 +26,7 @@ jobs:
           docker manifest inspect chtools/test-clickhouse:${{ inputs.clickhouse_version }}
           echo "NEED_SETUP=false" >> $GITHUB_ENV
       - name: Test
-        if: ${{ env.NEED_SETUP }}
+        if: env.NEED_SETUP
         run: |
           echo ${{ env.NEED_SETUP }}
       - name: Last step
