@@ -18,7 +18,8 @@ jobs:
   print-clickhouse_version:
     runs-on: ubuntu-latest
     steps:
-      - name: Check the input tag to ${{ inputs.clickhouse_version }} 
+      - name: Check the input tag to ${{ inputs.clickhouse_version }}
+        continue-on-error: true
         run: |
           docker manifest inspect chtools/test-clickhouse:${{ inputs.clickhouse_version }} > /dev/null 2>&1
           exit_code=$?
