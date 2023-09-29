@@ -24,9 +24,9 @@ jobs:
           docker manifest inspect chtools/test-clickhouse: ${{ inputs.clickhouse_version }} > /dev/null 2>&1
           exit_code=$?        
           if [ $exit_code -eq 0 ]; then
-            echo "VERSION_EXIST=true" >> $GITHUB_ENV
+            echo "VERSION_EXIST=true" >> $GITHub_ENV
           else
-            echo "VERSION_EXIST=false" >> $GITHUB_ENV
+            echo "VERSION_EXIST=false" >> $GITHub_ENV
           fi
       - name: Print
         run: echo ${{ env.VERSION_EXIST }}
